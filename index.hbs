@@ -1,0 +1,61 @@
+{{!< default}}
+
+{{! The main content area on the homepage }}
+
+
+<div id="fullpage">
+    <div class="section " id="section0">
+        <img
+            src="{{asset "img/milchkannen-stamp.png"}}"
+            title="milchkannen | upCycling &amp; reDesign by Andr&eacute; Kilchenmann"
+            alt="milchkannen | upCycling &amp; reDesign by Andr&eacute; Kilchenmann"
+            class="logo"
+        >
+    </div>
+    <div class="section " id="section1">
+
+            {{! Each post will be output using this markup }}
+            {{#foreach posts}}
+
+                <div class="slide" id="slide1">
+                    <div class="intro">
+                        <h2>
+                            <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
+                        </h2>
+
+                        {{#if image}}
+                                <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
+                        {{/if}}
+                        <p class="post__excerpt"><a href="{{url}}" class="post__link post__readmore">{{excerpt characters="120"}}&hellip;</a></p>
+                    </div>
+                </div>
+            {{/foreach}}
+
+    </div>
+    <div class="section " id="section2">
+        <div class="intro">
+            <div class="about">
+                <h2>Des Weiteren</h2>
+                <p>interessiert er sich für gutes Design und erstellt seine Möbel
+                    und Textilien gerne selbst. Diese Produkte laufen unter dem Label
+                    <a href="http://milchkannen.ch">milchkannen</a> &ndash; ein
+                    Anagramm von Kilchenmann. Sie sind zu finden, zusammen mit
+                    weiteren Inspirationen, auf dieser Pinnwand:
+                    <!-- <a href="http://www.notizblogg.ch/">Notizblogg</a> | -->
+                    <a href="http://www.pinterest.com/milchkannen">Pinterest</a>
+                <h2>Mehr Informationen</h2>
+                <p><a href="http://about.me/milchkannen">about.me</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="{{#if @blog.cover}} custom-bg{{else}} default-bg{{/if}}"{{#if @blog.cover}} style="background-image: url({{@blog.cover}})"{{/if}}>
+    <div class="main__wrapper">
+
+
+    </div>
+
+    {{!! After all the posts, we have the previous/next pagination links }}
+    {{!pagination}}
+</main>
