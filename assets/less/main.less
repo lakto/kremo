@@ -1,0 +1,98 @@
+/* main css style for kremo */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body, header, footer, nav, section, span, p, input, select, textarea, ul, li, a {
+    text-decoration: none;
+    list-style-type: none;
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    color: @ink;
+    font-family: ubuntu, raleway, awesome, stylus, Verdana, sans-serif;
+}
+
+a {
+    color: @link;
+    &:hover {
+        color: darken(@link, 75%);
+    }
+    .active {
+        color: darken(@link, 75%);
+        border-bottom: 1px solid @line;
+    }
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 13px;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+
+/* header */
+header {
+    position:fixed;
+    height: 60px;
+    display:block;
+    width: 100%;
+    z-index:9;
+    text-align:center;
+    color: #3f3f3f;
+    top: 0;
+
+    .kr-header {
+        margin: 20px;
+        height: 60px;
+        border-bottom: 1px solid #3f3f3f;
+
+        .kr-headline {
+            float: left;
+            width: 50%;
+            .kr-logo {
+                height: 66px;
+                background-size: 206px 46px;
+                background-repeat: no-repeat;
+            }
+            .kr-title {
+
+            }
+            .kr-description {
+
+            }
+        }
+        .kr-nav {
+            float: right;
+            width: 50%;
+            ul {
+                li {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* -------------------------------- */
+
+/* body */
+
+
+
+
+
+/* -------------------------------- */
+
+/* footer */
+
+
+
+
+
+/* -------------------------------- */

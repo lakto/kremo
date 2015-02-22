@@ -7,11 +7,11 @@
         {{! Everything inside the #post tags pulls data from the post }}
         <article class="{{post_class}}">
         {{#post}}
-            {{#contentFor "metaTags"}} 
+            {{#contentFor "metaTags"}}
                 <meta property="article:author" content="{{author.name}}">
             {{/contentFor}}
 
-            <div class="post__wrapper--subpage">    
+            <div class="post__wrapper--subpage">
                 {{#if image}}
                 	<div class="post__media">
                 		<img src="{{image}}" alt="{{{title}}}" />
@@ -24,8 +24,8 @@
                     </h2>
 
                     <time datetime="{{date format='YYYY-MM-DD'}}" class="post__date">
-                        {{date format="MMM, DD, YYYY"}}
-                    </time> 
+                        {{date format="DD|MM|YYYY"}}
+                    </time>
                 </header>
 
                 <section class="post__content">
@@ -48,7 +48,7 @@
                             <span class="social__icon--hidden">Google+</span>
                         </a>
                     </div>
-                    
+
                     {{#if tags}}
                     <ul class="post__meta post__meta--subpage">
                       {{#foreach tags}}

@@ -2,20 +2,20 @@
 
 {{! The main content area on the homepage }}
 
-
 <div id="fullpage">
-    <div class="section " id="section0">
+    {{! section0: this is the start page, the news blog }}
+    <div class="section" id="section0">
+        {{! background image }}
         <img
-            src="{{asset "img/milchkannen-stamp.png"}}"
-            title="milchkannen | upCycling &amp; reDesign by Andr&eacute; Kilchenmann"
-            alt="milchkannen | upCycling &amp; reDesign by Andr&eacute; Kilchenmann"
-            class="logo"
+            src="{{asset "img/section0.jpg"}}"
+            title="LAKTO | more than milk by milchkannen"
+            alt="LAKTO | more than milk by milchkannen"
         >
-    </div>
-    <div class="section " id="section1">
-
-            {{! Each post will be output using this markup }}
-            {{#foreach posts}}
+        {{! content of section0 }}
+        {{! Each post will be output using this markup }}
+        {{#foreach posts}}
+            {{#has tag="news"}} {{! only post with the tag "news" }}
+                {{!> post}}
 
                 <div class="slide" id="slide1">
                     <div class="intro">
@@ -24,14 +24,45 @@
                         </h2>
 
                         {{#if image}}
-                                <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
+                            <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
                         {{/if}}
-                        <p class="post__excerpt"><a href="{{url}}" class="post__link post__readmore">{{excerpt characters="120"}}&hellip;</a></p>
+                        <p class="post__excerpt">
+                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="120"}}&hellip;</a>
+                        </p>
                     </div>
                 </div>
-            {{/foreach}}
+            {{/has}}
+        {{/foreach}}
+
 
     </div>
+
+    {{! section1 = products as a slideshow }}
+    <div class="section" id="section1">
+        {{! Each post will be output using this markup }}
+        {{#foreach posts}}
+            {{#has tag="©ak"}} {{! only post with the tag "news" }}
+                {{!> post}}
+
+                <div class="slide" id="slide1">
+                    <div class="intro">
+                        <h2>
+                            <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
+                        </h2>
+
+                        {{#if image}}
+                            <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
+                        {{/if}}
+                        <p class="post__excerpt">
+                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="120"}}&hellip;</a>
+                        </p>
+                    </div>
+                </div>
+            {{/has}}
+        {{/foreach}}
+    </div>
+
+    {{! }}
     <div class="section " id="section2">
         <div class="intro">
             <div class="about">
@@ -49,6 +80,15 @@
         </div>
     </div>
 </div>
+
+<div class="section " id="section3">
+    <div class="intro">
+        <div class="about">
+            leer
+        </div>
+    </div>
+</div>
+
 
 <main role="main" class="{{#if @blog.cover}} custom-bg{{else}} default-bg{{/if}}"{{#if @blog.cover}} style="background-image: url({{@blog.cover}})"{{/if}}>
     <div class="main__wrapper">
