@@ -3,19 +3,18 @@
 {{! The main content area on the homepage }}
 
 <div id="fullpage">
-    {{! section0: this is the start page, the news blog as portfolio}}
+    {{! section0: this is the start page: intro}}
     <div class="section" id="section0">
-        {{! background image }}
-<!--    <img
-            src="{{asset "img/section0.jpg"}}"
-            title="LAKTO | more than milk by milchkannen"
-            alt="LAKTO | more than milk by milchkannen"
-        >
--->
-        {{! content of section0 }}
+        <div class="intro">
+            <img src="{{@blog.cover}}" alt="{{@blog.title}} | {{@blog.description}}" class="coverlogo" />
+        </div>
+    </div>
+
+    {{! section1: new products}}
+    <div class="section" id="section1">
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
-            {{#has tag="news"}} {{! only post with the tag "news" }}
+            {{#has tag="product"}} {{! only post with the tag "product" }}
                 {{!> post}}
                 <div class="slide" id="slide1">
                     <div class="intro">
@@ -34,11 +33,11 @@
         {{/foreach}}
     </div>
 
-    {{! section1 = products as a slideshow }}
-    <div class="section" id="section1">
+    {{! section2: upCycling and reDesign}}
+    <div class="section" id="section2">
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
-            {{#has tag="©ak"}} {{! only post with the tag "©ak" }}
+            {{#has tag="upcard"}} {{! only post with the tag "upcard" = upCycling and reDesign}}
                 {{!> post}}
                 <div class="slide" id="slide1">
                     <div class="intro">
@@ -49,7 +48,7 @@
                             <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
                         {{/if}}
                         <p class="post__excerpt">
-                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="120"}}&hellip;</a>
+                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="111"}}&hellip;</a>
                         </p>
                     </div>
                 </div>
@@ -57,40 +56,36 @@
         {{/foreach}}
     </div>
 
-    {{! }}
-    <div class="section " id="section2">
+    {{! section3: computational stuff}}
+    <div class="section " id="section3">
+        {{! Each post will be output using this markup }}
+        {{#foreach posts}}
+            {{#has tag="cs"}} {{! only post with the tag "cs" = computational stuff }}
+                {{!> post}}
+                <div class="slide" id="slide1">
+                    <div class="intro">
+                        <h2>
+                            <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
+                        </h2>
+                        {{#if image}}
+                            <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
+                        {{/if}}
+                        <p class="post__excerpt">
+                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="111"}}&hellip;</a>
+                        </p>
+                    </div>
+                </div>
+            {{/has}}
+        {{/foreach}}
+    </div>
+
+    {{! secttion4: manufactory incl. about us and contact}}
+    <div class="section " id="section4">
         <div class="intro">
             <div class="about">
-                <h2>Des Weiteren</h2>
-                <p>interessiert er sich für gutes Design und erstellt seine Möbel
-                    und Textilien gerne selbst. Diese Produkte laufen unter dem Label
-                    <a href="http://milchkannen.ch">milchkannen</a> &ndash; ein
-                    Anagramm von Kilchenmann. Sie sind zu finden, zusammen mit
-                    weiteren Inspirationen, auf dieser Pinnwand:
-                    <!-- <a href="http://www.notizblogg.ch/">Notizblogg</a> | -->
-                    <a href="http://www.pinterest.com/milchkannen">Pinterest</a>
-                <h2>Mehr Informationen</h2>
-                <p><a href="http://about.me/milchkannen">about.me</a></p>
+                leer
             </div>
         </div>
     </div>
+
 </div>
-
-<div class="section " id="section3">
-    <div class="intro">
-        <div class="about">
-            leer
-        </div>
-    </div>
-</div>
-
-
-<main role="main" class="{{#if @blog.cover}} custom-bg{{else}} default-bg{{/if}}"{{#if @blog.cover}} style="background-image: url({{@blog.cover}})"{{/if}}>
-    <div class="main__wrapper">
-
-
-    </div>
-
-    {{!! After all the posts, we have the previous/next pagination links }}
-    {{!pagination}}
-</main>

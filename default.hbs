@@ -11,7 +11,7 @@
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{meta_title}}">
@@ -63,6 +63,7 @@
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/handlebars.min.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.slimscroll.min.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/jquery.center.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fullPage.min.js"}}"></script>
 
     <script type="text/javascript">
@@ -71,11 +72,12 @@
                 anchors: ['', 'product', 'upcard', 'computer', 'manufactory'],
                 sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff'],
                 navigation: false,
-//                navigationPosition: 'right',
-//                navigationTooltips: ['News', 'Produkt', 'Atelier', 'Kontakt'],
+                verticalCentered: false,
+                responsive: 900,
                 css3: true
             });
         });
+        $('.intro img.coverlogo').center();
         var curDate = new Date(),
                 curYear = curDate.getFullYear();
 //        $('span.year').text('2009 - ' + curYear);
