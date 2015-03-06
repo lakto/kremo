@@ -15,17 +15,20 @@
 
 }}
 <div id="header" class="kr-header">
+    <a href="/" title="{{@blog.title}} | {{@blog.description}}">
+        {{#if @blog.logo}}
+            <div class="kr-logo" style="background-image: url({{@blog.logo}})"></div>
+        {{else}}
+            <div class="kr-logo" style="background-image: url('{{asset "img/kremo-logo.png"}}')"></div>
+        {{/if}}
+    </a>
+
     <div class="kr-headline">
         <a href="/" title="{{@blog.title}} | {{@blog.description}}">
-            {{#if @blog.logo}}
-                <div class="kr-logo" style="background-image: url({{@blog.logo}})"></div>
-            {{else}}
-                <div class="kr-title">{{@blog.title}}</div>
-                <div class="kr-description">{{@blog.description}}</div>
-            {{/if}}
+            <div class="kr-description"><h1>{{@blog.description}}</h1></div>
         </a>
-    </div>
-    <div class="kr-nav">
-        {{> menu}}
+        <div class="kr-navigation">
+            {{> menu}}
+        </div>
     </div>
 </div>

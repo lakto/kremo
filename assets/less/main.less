@@ -46,31 +46,45 @@ header {
     top: 0;
 
     .kr-header {
-        margin: 20px;
-        height: 60px;
-        border-bottom: 1px solid #3f3f3f;
+        margin: 10px;
+        height: 80px;
+        font-family: stylus;
+        color: @link;
+
+        .kr-logo {
+            height: 220px;
+            background-size: 140px 220px;
+            background-repeat: no-repeat;
+        }
 
         .kr-headline {
             float: left;
-            width: 50%;
-            .kr-logo {
-                height: 66px;
-                background-size: 206px 46px;
-                background-repeat: no-repeat;
-            }
+            position: relative;
+            left: 150px;
+            top: -200px;
+            width: 80%;
             .kr-title {
 
             }
             .kr-description {
+                height: 45px;
+                border-bottom: 1px solid @link;
+                text-align: left;
+                h1 {
+                    font-size: 2em;
+                }
 
             }
-        }
-        .kr-nav {
-            float: right;
-            width: 50%;
-            ul {
-                li {
-                    display: inline;
+
+            .kr-navigation {
+                height: 35px;
+                text-align: left;
+                padding: 10px;
+                ul {
+                    color: @link;
+                    li {
+                        display: inline;
+                    }
                 }
             }
         }

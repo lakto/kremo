@@ -3,53 +3,48 @@
 {{! The main content area on the homepage }}
 
 <div id="fullpage">
-    {{! section0: this is the start page, the news blog }}
+    {{! section0: this is the start page, the news blog as portfolio}}
     <div class="section" id="section0">
         {{! background image }}
-        <img
+<!--    <img
             src="{{asset "img/section0.jpg"}}"
             title="LAKTO | more than milk by milchkannen"
             alt="LAKTO | more than milk by milchkannen"
         >
+-->
         {{! content of section0 }}
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
             {{#has tag="news"}} {{! only post with the tag "news" }}
                 {{!> post}}
-
                 <div class="slide" id="slide1">
                     <div class="intro">
                         <h2>
                             <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
                         </h2>
-
                         {{#if image}}
                             <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
                         {{/if}}
                         <p class="post__excerpt">
-                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="120"}}&hellip;</a>
+                            <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="111"}}&hellip;</a>
                         </p>
                     </div>
                 </div>
             {{/has}}
         {{/foreach}}
-
-
     </div>
 
     {{! section1 = products as a slideshow }}
     <div class="section" id="section1">
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
-            {{#has tag="©ak"}} {{! only post with the tag "news" }}
+            {{#has tag="©ak"}} {{! only post with the tag "©ak" }}
                 {{!> post}}
-
                 <div class="slide" id="slide1">
                     <div class="intro">
                         <h2>
                             <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
                         </h2>
-
                         {{#if image}}
                             <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
                         {{/if}}
