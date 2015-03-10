@@ -15,7 +15,7 @@ body, header, footer, nav, section, span, p, input, select, textarea, ul, li, a 
 }
 
 a {
-    color: @link;
+    color: @ink;
     &:hover {
         color: darken(@link, 75%);
     }
@@ -37,13 +37,14 @@ p {
 /* header */
 header {
     position:fixed;
-    height: 60px;
+    height: 220px;
     display:block;
     width: 100%;
     z-index:9;
     text-align:center;
     color: #3f3f3f;
     top: 0;
+    display: none;
 
     .kr-header {
         margin: 10px;
@@ -63,6 +64,8 @@ header {
             left: 150px;
             top: -200px;
             width: 80%;
+            background-color: fade(@bg, 33%);
+            padding: 12px;
             .kr-title {
 
             }
@@ -106,13 +109,33 @@ header {
 
     .intro img.coverlogo {
         width: 60%;
+        cursor: pointer;
     }
 
 }
 
 .section {
     text-align: center;
-    
+
+    .slide {
+        background-size: cover;
+        opacity: 0.9;
+        .intro {
+            background-color: fade(@bg, 75%);
+            padding: 12px;
+            width: 75%;
+
+            h2 {
+                font-size: 1.5em;
+                font-weight: bolder;
+                line-height: 3em;
+            }
+
+            p {
+
+            }
+        }
+    }
 }
 
 

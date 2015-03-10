@@ -69,17 +69,40 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#fullpage').fullpage({
-                anchors: ['', 'product', 'upcard', 'computer', 'manufactory'],
+                anchors: ['start', 'product', 'upcard', 'computer', 'manufactory'],
                 sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff'],
                 navigation: false,
                 verticalCentered: false,
                 responsive: 900,
-                css3: true
+                css3: true,
+                afterLoad: function (anchorLink, index) {
+                    //for section 1
+                    if (index == 1) {
+                        $('header').slideToggle('fast');
+                    }
+                },
+                onLeave: function(index, nextIndex, direction){
+                    var leavingSection = $(this);
+                    //after leaving section 1
+                    if(index == 1 && direction =='down'){
+                        $('header').slideDown('slow');
+                    } else {
+
+                    }
+                }
             });
+
         });
-        $('.intro img.coverlogo').center();
+
+        $('.intro').center('vertical');
+        $('img.coverlogo').on('click', function() {
+            $.fn.fullpage.moveSectionDown();
+        });
         var curDate = new Date(),
-                curYear = curDate.getFullYear();
+            curYear = curDate.getFullYear();
+
+
+
 //        $('span.year').text('2009 - ' + curYear);
     </script>
 </body>

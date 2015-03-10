@@ -31,11 +31,12 @@
 				localdata.center = {};
 				// initialize a local data object which is attached to the DOM object
 				$this.data('localdata', localdata);
-				$this.css("position","absolute");
-				$this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 3) +
+				$this.css("position","relative");
+				$this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
 					$(window).scrollTop()) + "px");
 				$this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
 					$(window).scrollLeft()) + "px");
+					console.log($(this).outerWidth());
 				return $this;
 			});											// end "return this.each"
 		},												// end "init"
@@ -55,8 +56,8 @@
 			return this.each(function(){
 				var $this = $(this);
 				var localdata = $this.data('localdata');
-				$this.css("position","absolute");
-				$this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+				$this.css("position","relative");
+				$this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 1.25) +
 					$(window).scrollTop()) + "px");
 				return $this;
 			});

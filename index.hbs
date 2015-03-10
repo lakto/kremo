@@ -16,14 +16,11 @@
         {{#foreach posts}}
             {{#has tag="product"}} {{! only post with the tag "product" }}
                 {{!> post}}
-                <div class="slide" id="slide1">
+                <div class="slide" id="slide{{@index}}" style="background-image: url('{{image}}')">
                     <div class="intro">
                         <h2>
                             <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
                         </h2>
-                        {{#if image}}
-                            <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
-                        {{/if}}
                         <p class="post__excerpt">
                             <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="111"}}&hellip;</a>
                         </p>
@@ -37,16 +34,13 @@
     <div class="section" id="section2">
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
-            {{#has tag="upcard"}} {{! only post with the tag "upcard" = upCycling and reDesign}}
+            {{#has tag="upCycling & reDesign"}} {{! only post with the tag "upcard" = upCycling and reDesign}}
                 {{!> post}}
-                <div class="slide" id="slide1">
+                <div class="slide" id="slide{{@index}}" style="background-image: url('{{image}}')">
                     <div class="intro">
                         <h2>
                             <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
                         </h2>
-                        {{#if image}}
-                            <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
-                        {{/if}}
                         <p class="post__excerpt">
                             <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="111"}}&hellip;</a>
                         </p>
@@ -60,16 +54,13 @@
     <div class="section " id="section3">
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
-            {{#has tag="cs"}} {{! only post with the tag "cs" = computational stuff }}
+            {{#has tag="computational stuff"}} {{! only post with the tag "cs" = computational stuff }}
                 {{!> post}}
-                <div class="slide" id="slide1">
+                <div class="slide" id="slide{{@key}}" style="background-image: url('{{image}}')">
                     <div class="intro">
                         <h2>
                             <a href="{{url}}" class="post__link post__title_link"><span>{{{title}}}</span></a>
                         </h2>
-                        {{#if image}}
-                            <img src="{{image}}" alt="{{{title}}}" class="post__image_to_load" />
-                        {{/if}}
                         <p class="post__excerpt">
                             <a href="{{url}}" class="post__link post__readmore">{{excerpt characters="111"}}&hellip;</a>
                         </p>
