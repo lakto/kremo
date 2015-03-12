@@ -11,7 +11,6 @@ body, header, footer, nav, section, span, p, input, select, textarea, ul, li, a 
     letter-spacing: 2px;
     line-height: 1.2em;
     color: @ink;
-    font-family: ubuntu, raleway, awesome, stylus, Verdana, sans-serif;
 }
 
 a {
@@ -28,53 +27,64 @@ a {
 p {
   text-align: justify;
   text-justify: inter-word;
-  font-size: 13px;
-  line-height: 20px;
   word-wrap: break-word;
+  .font-smoothing ();
 }
 
 
 /* header */
 header {
     position:fixed;
-    height: 220px;
+    height: 90px;
     display:block;
     width: 100%;
     z-index:9;
     text-align:center;
-    color: #3f3f3f;
+    background-color: @header;
+    .box-shadow-bottom();
+    overflow: visible;
     top: 0;
     display: none;
+    font-family: ubuntu, raleway, awesome, stylus, Verdana, sans-serif;
+
+    a {
+    }
 
     .kr-header {
-        margin: 10px;
+        margin: 0 10px;
         height: 80px;
         font-family: stylus;
-        color: @link;
+
 
         .kr-logo {
-            height: 220px;
-            background-size: 140px 220px;
+            margin-left: 39px;
+            height: 180px;
+            background-size: 81px 180px;
             background-repeat: no-repeat;
+            z-index: 4;
         }
 
         .kr-headline {
             float: left;
             position: relative;
-            left: 150px;
-            top: -200px;
-            width: 80%;
-            background-color: fade(@bg, 33%);
+            left: 140px;
+            top: -152px;
             padding: 12px;
+
             .kr-title {
 
             }
             .kr-description {
-                height: 45px;
-                border-bottom: 1px solid @link;
+                height: 40px;
+//                border-bottom: 1px solid fade(@link, 50%);
                 text-align: left;
                 h1 {
                     font-size: 2em;
+                    font-weight: bolder;
+                    a {
+
+                        color: @darkblue;
+                    }
                 }
 
             }
@@ -82,7 +92,9 @@ header {
             .kr-navigation {
                 height: 35px;
                 text-align: left;
+                margin-top: 12px;
                 padding: 10px;
+                background-color: fade(@white, 25%);
                 ul {
                     color: @link;
                     li {
@@ -120,19 +132,28 @@ header {
     .slide {
         background-size: cover;
         opacity: 0.9;
+
+        /*
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        */
         .intro {
-            background-color: fade(@bg, 75%);
+            background-color: @intro;
             padding: 12px;
-            width: 75%;
+            width: 88%;
+            a, span {
+                color: lighten(@ink, 75%);
+            }
 
             h2 {
-                font-size: 1.5em;
                 font-weight: bolder;
-                line-height: 3em;
             }
 
             p {
-
+                padding: 24px;
             }
         }
     }

@@ -57,7 +57,7 @@
 				var $this = $(this);
 				var localdata = $this.data('localdata');
 				$this.css("position","relative");
-				$this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 1.25) +
+				$this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 1.2) +
 					$(window).scrollTop()) + "px");
 				return $this;
 			});

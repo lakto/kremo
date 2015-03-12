@@ -24,9 +24,14 @@
     </a>
 
     <div class="kr-headline">
-        <a href="/" title="{{@blog.title}} | {{@blog.description}}">
-            <div class="kr-description"><h1>{{@blog.description}}</h1></div>
-        </a>
+        <div class="kr-description">
+            <h1>
+                <a href="/" title="{{@blog.title}} | {{@blog.description}}">
+                    {{@blog.description}}
+                </a>
+            </h1>
+        </div>
+
         <div class="kr-navigation">
             {{> menu}}
         </div>

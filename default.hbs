@@ -68,8 +68,28 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var tags = {};
+            {{#foreach posts}}
+            	{{#foreach tags}}
+            		tags["{{name}}"] = "{{url}}";
+            	{{/foreach}}
+            {{/foreach}}
+
+            $(function(){
+                var j = 1;
+                var section;
+            	$.each(tags, function(i,tag){
+                    var tag = (tag.substr(0, tag.length - 1 )).split('/').pop();
+            		$(".kr-nav-list").append('<li><a href="/#' + tag + '/">' + i + '</a></li> | ');
+            		$(".fullpage-wrapper").append(
+                        section = $('<div>').addClass('section').attr({'id': 'section'+j})
+                    );
+                    j += 1;
+            	});
+            });
+            $('#fullpage').delay( 800 );
             $('#fullpage').fullpage({
-                anchors: ['start', 'product', 'upcard', 'computer', 'manufactory'],
+                anchors: ['', 'product', 'upcard', 'computer', 'manufactory'],
                 sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff'],
                 navigation: false,
                 verticalCentered: false,
@@ -78,16 +98,16 @@
                 afterLoad: function (anchorLink, index) {
                     //for section 1
                     if (index == 1) {
-                        $('header').slideToggle('fast');
+                //        $('header').slideToggle('fast');
                     }
                 },
                 onLeave: function(index, nextIndex, direction){
                     var leavingSection = $(this);
                     //after leaving section 1
-                    if(index == 1 && direction =='down'){
-                        $('header').slideDown('slow');
-                    } else {
-
+                    if(index == 1 && direction == 'down'){
+                        $('header').slideDown('700');
+                    } else if(index == 2 && direction == 'up') {
+                        $('header').slideUp('700');
                     }
                 }
             });
