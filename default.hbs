@@ -67,61 +67,62 @@
     <script type="text/javascript" src="{{asset "js/jquery.fullPage.min.js"}}"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            var tags = {};
-            {{#foreach posts}}
-            	{{#foreach tags}}
-            		tags["{{name}}"] = "{{url}}";
-            	{{/foreach}}
-            {{/foreach}}
+        // or with a json object:
+        var menu = "{{asset "nav.json"}}";
 
-            $(function(){
-                var j = 1;
-                var section;
-            	$.each(tags, function(i,tag){
-                    var tag = (tag.substr(0, tag.length - 1 )).split('/').pop();
-            		$(".kr-nav-list").append('<li><a href="/#' + tag + '/">' + i + '</a></li> | ');
-            		$(".fullpage-wrapper").append(
-                        section = $('<div>').addClass('section').attr({'id': 'section'+j})
-                    );
-                    j += 1;
-            	});
+        $.getJSON(menu, function(data) {
+            $.each(data, function(i, item) {
+                $(".kr-nav-list").append('<li><a href="/#' + item.tag + '/">' + item.name + '</a></li>');
+                $(".fullpage-wrapper").append(
+                    section = $('<div>').addClass('section ' + item.tag).attr({'id': 'section' + i})
+                );
             });
-            $('#fullpage').delay( 800 );
-            $('#fullpage').fullpage({
-                anchors: ['', 'product', 'upcard', 'computer', 'manufactory'],
-                sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff'],
-                navigation: false,
-                verticalCentered: false,
-                responsive: 900,
-                css3: true,
-                afterLoad: function (anchorLink, index) {
-                    //for section 1
-                    if (index == 1) {
-                //        $('header').slideToggle('fast');
-                    }
-                },
-                onLeave: function(index, nextIndex, direction){
-                    var leavingSection = $(this);
-                    //after leaving section 1
-                    if(index == 1 && direction == 'down'){
-                        $('header').slideDown('700');
-                    } else if(index == 2 && direction == 'up') {
-                        $('header').slideUp('700');
-                    }
-                }
-            });
-
         });
 
+        $('#fullpage').fullpage({
+            anchors: ['', 'product', 'upcard', 'computer', 'manufactory'],
+            sectionsColor: ['#fff', '#fff', '#fff', '#fff', '#fff'],
+            navigation: false,
+            verticalCentered: false,
+            setAllowScrolling: true,
+            setKeyboardScrolling: true,
+            normalScrollElements: '.post-template',
+//                responsive: 900,
+            css3: true,
+            onLeave: function(index, nextIndex, direction){
+                var leavingSection = $(this);
+                //after leaving section 1
+                if(index == 1 && direction == 'down'){
+                    $('header').slideDown('700');
+                } else if(index == 2 && direction == 'up') {
+                    $('header').slideUp('700');
+                }
+            }
+        });
+
+        $(window).resize(function() {
+            if ($(window).width() < 640) {
+               console.log('Less than 640');
+            }
+            else {
+                $('.intro').center('vertical');
+            }
+        });
+
+        if ($(window).width() < 640) {
+           console.log('Less than 640');
+        }
+        else {
+        }
+
+
         $('.intro').center('vertical');
+
         $('img.coverlogo').on('click', function() {
             $.fn.fullpage.moveSectionDown();
         });
         var curDate = new Date(),
             curYear = curDate.getFullYear();
-
-
 
 //        $('span.year').text('2009 - ' + curYear);
     </script>
