@@ -1,0 +1,41 @@
+{{!< default}}
+{{#post}}
+<div id="cover-image" class="layout-transparent mdl-layout mdl-js-layout"
+    {{#if image}}
+        style="background-image: url({{image}});"
+    {{else}}
+        {{#if @blog.cover}}
+            style="background-image: url({{@blog.cover}});"
+        {{else}}
+            style="background-image: url('{{asset "images/cover.jpg"}}');"
+        {{/if}}
+    {{/if}}
+>
+    {{#if @blog.navigation}}
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+                <!-- Navigation -->
+                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                    {{navigation}}
+                </nav>
+                <!-- Add spacer, to align title to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Title -->
+                <span class="mdl-layout-title"></span>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <nav class="mdl-navigation">
+                {{navigation}}
+            </nav>
+        </div>
+    {{/if}}
+</div>
+
+<main id="page">
+    <div class="title-page post-excerpt">
+        <h2>{{title}}</h2>
+    </div>
+	<div class="post-content">{{content}}</div>
+</main>
+{{/post}}
