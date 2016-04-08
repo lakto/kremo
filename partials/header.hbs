@@ -1,0 +1,24 @@
+<!-- main header on post and page: post.hbs and page.hbs -->
+<div id="cover-image" class="layout-transparent mdl-layout mdl-js-layout"
+    {{#if image}}
+        style="background-image: url({{image}});"
+    {{else}}
+        {{#if @blog.cover}}
+            style="background-image: url({{@blog.cover}});"
+        {{else}}
+            style="background-image: url('{{asset "images/cover.jpg"}}');"
+        {{/if}}
+    {{/if}}>
+    <!-- navigation menu if available -->
+    {{#if @blog.navigation}}
+        {{navigation}}
+    {{/if}}
+    <div class="portfolio-max-width">
+        <div class="logo-container">
+            <a href="{{@blog.url}}" title="{{@blog.title}}">
+                <div class="place4logo large"></div>
+                <div class="place4logo small small-screen-only"></div>
+            </a>
+        </div>
+    </div>
+</div>

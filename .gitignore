@@ -1,3 +1,4 @@
+*-old/
 .sass-cache/
 scss/
 *.css.map

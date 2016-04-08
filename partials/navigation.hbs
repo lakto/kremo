@@ -1,3 +1,21 @@
-{{#foreach navigation}}
-    <a class="mdl-navigation__link" href="{{url absolute="true"}}">{{label}}</a>
-{{/foreach}}
+<div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row mdl-layout--large-screen-only">
+            <!--<span class="mdl-layout-title">Acme</span>-->
+            <!--<div class="mdl-layout-spacer"></div>-->
+            <nav class="mdl-navigation">
+                {{#foreach navigation}}
+                    <a class="mdl-navigation__link" href="{{url absolute="true"}}">{{label}}</a>
+                {{/foreach}}
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <!--<span class="mdl-layout-title"></span>-->
+        <nav class="mdl-navigation">
+            {{#foreach navigation}}
+                <a class="mdl-navigation__link" href="{{url absolute="true"}}">{{label}}</a>
+            {{/foreach}}
+        </nav>
+    </div>
+</div>

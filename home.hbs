@@ -1,60 +1,6 @@
 {{!< default}}
+<div id="landing-page">
+    {{> headerCover}}
 
-<div id="cover-image" class="layout-transparent mdl-layout mdl-js-layout"
-    {{#if @blog.cover}}
-        style="background-image: url({{@blog.cover}});"
-    {{else}}
-        style="background-image: url('{{asset "images/cover.jpg"}}');"
-    {{/if}}
->
-    {{#if @blog.navigation}}
-        <header class="mdl-layout__header mdl-layout__header--transparent">
-            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
-                <!-- Navigation -->
-                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                    {{navigation}}
-                </nav>
-                <!-- Add spacer, to align title to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Title -->
-                <span class="mdl-layout-title"></span>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <nav class="mdl-navigation">
-                {{navigation}}
-            </nav>
-        </div>
-    {{/if}}
-
-    <div class="place4logo"></div>
-    <div class="title-container">
-        <h2 class="blog-title">Gutes aus Abfall</h2>
-        <hr>
-        <h1 class="blog-description">Willkommen bei Milchkannen &mdash; Die andere Art von Recycling</h1>
-    </div>
+    {{> portfolio}}
 </div>
-
-<main id="portfolio">
-
-    <div class="title-portfolio post-excerpt">
-        <h2>Lass dich inspirieren</h2>
-    </div>
-    {{#foreach posts}}
-        {{> excerpt}}
-    {{/foreach}}
-
-    {{pagination}}
-    <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-            <div class="mdl-logo">
-                &copy; {{date format="YYYY"}} {{@blog.title}} on <a href="https://ghost.org/">Ghost</a> with <a href="https://github.com/milchkannen/kremo" target="_blank">Kremo</a>
-            </div>
-        </div>
-        <div class="mdl-mini-footer__right-section">
-            <ul class="mdl-mini-footer__link-list">
-                <li>Eine Initiative von <a href="http://lakto.org" title="LAKTO | design &amp; more">LAKTO</a></li>
-            </ul>
-        </div>
-    </footer>
-</main>
