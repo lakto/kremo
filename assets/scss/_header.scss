@@ -2,6 +2,10 @@ header {
     @include background-cover('', scroll);
     color: $chalk;
     overflow: hidden;
+    .header-max-width {
+        width: 900px;
+        margin: auto;
+    }
     .logo-container {
         .place4logo {
             top: 16px;
@@ -63,6 +67,10 @@ header {
 @media screen and (max-width: 1024px) {
     header {
         @include background-cover('', scroll);
+        .header-max-width {
+            width: 90%;
+            width: 90vw;
+        }
         .logo-container {
             .place4logo.large {
                 display: none;
