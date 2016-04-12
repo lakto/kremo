@@ -1,39 +1,41 @@
-<main id="portfolio" class="mdl-layout__content">
+<main class="portfolio">
     <div class="portfolio-max-width">
-        <div class="title-portfolio">
+        <div class="portfolio-title">
             <h3>Lass dich inspirieren</h3>
         </div>
     </div>
-    <div class="mdl-grid portfolio-max-width">
-        {{#foreach posts}}
-            {{^has tag="contact"}}
-                <div class="mdl-cell mdl-card mdl-shadow--0dp portfolio-card">
-                    <a href="{{url}}">
-                        <div class="mdl-card__title"  {{#if image}} style="background-image: url({{image}});" {{/if}}>
-                          <h2 class="mdl-card__title-text">{{title}}</h2>
-                        </div>
+    <div class="mdl-layout__content">
+        <div class="mdl-grid portfolio-max-width">
+            {{#foreach posts}}
+            <div class="portfolio-card mdl-cell mdl-card mdl-shadow--0dp">
+                <a href="{{url}}">
+                    <div class="mdl-card__media" {{#if image}} style="background-image: url({{image}});" {{/if}}>
+                        <!-- as background-image:
+                        <div class="mdl-card__media">
 
-                        <div class="mdl-card__supporting-text">
-                            {{excerpt words="11"}}
                         </div>
-                    </a>
-                <!--
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{{url}}">Weiterlesen</a>
+                        -->
+                        <!-- OR as img tag:
+                        <img class="article-image" {{#if image}} src="{{image}}" {{/if}} border="0" alt="{{title}}">
+                        -->
                     </div>
-                -->
-                    <div class="mdl-card__menu">
-                      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <div class="mdl-card__title">
+                        <h3 class="mdl-card__title-text">{{title}}</h3>
+                    </div>
+                </a>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons">share</i>
-                      </button>
-                    </div>
+                    </button>
                 </div>
-            {{/has}}
-        {{/foreach}}
+            </div>
+            {{/foreach}}
+        </div>
     </div>
+
     <div class="portfolio-full-width">
         {{pagination}}
     </div>
-    {{> footer}}
 
+    {{> footer}}
 </main>

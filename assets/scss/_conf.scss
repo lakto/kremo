@@ -1,0 +1,29 @@
+$alert: rgb(255, 87, 34);
+$warning: rgb(255, 193, 6);
+
+$ink: rgb(33, 33, 33);
+$chalk: rgb(250, 250, 250);
+$link: rgb(131, 161, 64);
+
+$mute: rgb(158, 158, 158);
+
+$placeholder: $mute;
+
+/* Background Cover Image */
+@mixin background-cover ($img, $attachment: scroll) {
+    background-image: url($img);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: $attachment;
+}
+/* rotate elements */
+@mixin rotation ($rotation: 90deg, $scale: 1) {
+    -webkit-transform: rotate($rotation) scale($scale);
+    -moz-transform: rotate($rotation) scale($scale);
+    -o-transform: rotate($rotation) scale($scale);
+    -ms-transform: rotate($rotation) scale($scale);
+    transform: rotate($rotation) scale($scale);
+}

@@ -1,0 +1,14 @@
+footer.mdl-mini-footer {
+    min-height: 60px;
+    position: relative;
+    bottom: 0;
+    a {
+        color: $link;
+    }
+    img {
+        width: 32px;
+        height: 32px;
+        margin-top: -3px;
+    }
+
+}

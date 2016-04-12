@@ -1,0 +1,33 @@
+@import 'conf';
+@import 'navigation';
+@import 'header';
+@import 'footer';
+@import 'portfolio';
+@import 'page';
+body {
+    color: $ink;
+}
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: $ink;
+    &:hover {
+        color: $link;
+    }
+}
+.portfolio-max-width {
+    width: 900px;
+    margin: auto;
+}
+.portfolio-full-width {
+    width: 100%;
+    width: 100vw;
+    margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .portfolio-max-width {
+        width: 90%;
+        width: 90vw;
+    }
+}

@@ -1,5 +1,5 @@
 <!-- main header on post and page: post.hbs and page.hbs -->
-<div id="cover-image" class="layout-transparent mdl-layout mdl-js-layout"
+<header class="detail-page layout-transparent mdl-layout mdl-js-layout"
     {{#if image}}
         style="background-image: url({{image}});"
     {{else}}
@@ -16,9 +16,11 @@
     <div class="portfolio-max-width">
         <div class="logo-container">
             <a href="{{@blog.url}}" title="{{@blog.title}}">
-                <div class="place4logo large"></div>
-                <div class="place4logo small small-screen-only"></div>
+                <h1>
+                    <div class="place4logo large"></div>
+                    <div class="place4logo small small-screen-only"></div>
+                </h1>
             </a>
         </div>
     </div>
-</div>
+</header>

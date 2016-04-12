@@ -46,6 +46,30 @@
         // to have also an own page hbs file like 'page-contact.hbs' for a contact page.
         // Otherwise it will load the page.hbs file with headers a.s.o again.
         // In this case, we will have an endless loop. OMG! So, be careful.
+        //
+        // calculate the image height in the portfolio cards
+        //
+        var goldenCutRatio = 1.618;
+        $(window).on('load', function() {
+            var cardWidth = $('div.portfolio-card').width();
+            var cardHeight = cardWidth / goldenCutRatio;
+            if(cardHeight <= '200') cardHeight = 200;
+            $('div.mdl-card__media').height(cardHeight);
+            $('div.mdl-card__title').css({
+                'margin-top': '-' + cardHeight + 'px',
+                'height': cardHeight
+            });
+        });
+        $(window).on('resize', function() {
+            var cardWidth = $('div.portfolio-card').width();
+            var cardHeight = cardWidth / goldenCutRatio;
+            if(cardHeight <= '200') cardHeight = 200;
+            $('div.mdl-card__media').height(cardHeight);
+            $('div.mdl-card__title').css({
+                'margin-top': '-' + cardHeight + 'px',
+                'height': cardHeight
+            });
+        });
     </script>
 
 </body>

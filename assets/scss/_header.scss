@@ -1,0 +1,91 @@
+header {
+    @include background-cover('', scroll);
+    color: $chalk;
+    overflow: hidden;
+    .logo-container {
+        .place4logo {
+            top: 16px;
+            right: 16px;
+            position: absolute;
+            @include rotation(16deg, 1);
+            &.large {
+                display: block;
+                @include background-cover('/content/images/2016/04/milchkannen-stamp.png', '');
+                right: 12vw;
+                height: 31%;
+                height: 31vh;
+                width: 31vh;
+            }
+            &.small {
+                display: none;
+                @include background-cover('/content/images/2016/04/milchkannen-label.png', '');
+                right: 12vw;
+                height: 120px;
+                width: 120px;
+                max-height: 12vh;
+                max-width: 12vh;
+            }
+        }
+    }
+    .title-container {
+        overflow: hidden;
+        top: 39%;
+        top: 39vh;
+        position: absolute;
+        .place4welcome {
+
+        }
+    }
+    &.landing-page {
+        height: 78%;
+        height: 78vh;
+        .logo-container {
+            .place4logo {
+
+            }
+        }
+    }
+    &.detail-page {
+        height: 39%;
+        height: 39vh;
+        .logo-container {
+            .place4logo {
+                &.large {
+                    height: 18%;
+                    height: 18vh;
+                    width: 18vh;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header {
+        @include background-cover('', scroll);
+        .logo-container {
+            .place4logo.large {
+                display: none;
+            }
+            .place4logo.small {
+                &.small-screen-only {
+                    display: block;
+                }
+            }
+        }
+        .title-container {
+            width: 90%;
+            .place4welcome {
+                text-align: center;
+            }
+        }
+    }
+    @media screen and (max-height: 599px) {
+        header {
+            .title-container {
+                top: 12%;
+                top: 12vh;
+            }
+        }
+    }
+}

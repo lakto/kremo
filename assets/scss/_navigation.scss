@@ -1,0 +1,33 @@
+.mdl-layout {
+    .mdl-layout__header {
+        .mdl-layout__header-row {
+            .mdl-navigation {
+                .mdl-navigation__link {
+                    color: $chalk;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .mdl-layout__drawer-button {
+        color: $chalk;
+        font-weight: 400;
+    }
+}
+
+@media screen and (min-width: 1023px) {
+    mdl-layout__drawer, .mdl-layout__drawer-button {
+        display: none;
+    }
+    mdl-navigation {
+        display: block;
+    }
+}
+@media screen and (max-width: 1024px) {
+    mdl-layout__drawer, .mdl-layout__drawer-button {
+        display: block;
+    }
+    mdl-navigation {
+        display: none;
+    }
+}
